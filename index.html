@@ -13,182 +13,235 @@
       --card-bg: #ffffff;
       --radius:12px;
       --max-width:1100px;
+      --gap:18px;
+      --page-padding:18px;
+      --accent:#0f172a;
     }
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:linear-gradient(135deg,#e5e5e5 0%, #f5f5f5 100%);
-      color:#111827;
-      line-height:1.5;
+
+    /* Reset + accessibility helpers */
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.4}
+    body{margin:0;color:#111827;background:linear-gradient(135deg,#e5e5e5 0%, #f5f5f5 100%);-webkit-font-smoothing:antialiased}
+
+    a{color:inherit}
+
+    /* Skip link for keyboard users */
+    .skip-link{
+      position:absolute;left:12px;top:-40px;padding:8px 12px;background:#111827;color:#fff;border-radius:6px;z-index:100;
     }
-    header{
-      background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));
-      color:#fff;
-      padding:18px 20px;
-      position:sticky;
-      top:0;
-      z-index:40;
-    }
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
-    .nav{display:flex;align-items:center;justify-content:space-between}
+    .skip-link:focus{top:12px}
+
+    header{background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));color:#fff;padding:14px 0;position:sticky;top:0;z-index:40}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-padding)}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand .logo{
-      width:42px;height:42px;border-radius:8px;
-      background:#ffffff22;
-      display:grid;place-items:center;
-      font-weight:800;
-    }
-    nav a{color:#fff;text-decoration:none;margin-left:12px;font-weight:600;font-size:15px}
+    .brand .logo{width:42px;height:42px;border-radius:8px;background:#ffffff22;display:grid;place-items:center;font-weight:800}
+
+    /* Mobile nav toggle */
+    .nav-toggle{display:flex;align-items:center;gap:10px}
+    .nav-links{display:flex;gap:12px}
+    nav a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:15px}
+    nav a:focus{outline:3px solid #ffffff44}
+
     main{padding:28px 0 60px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px;}
-    .hero-card{
-      background:#fff;
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    }
+
+    /* Responsive hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero-card{background:var(--card-bg);border-radius:var(--radius);padding:28px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
     .hero h1{margin:0 0 8px;font-size:28px;color:var(--granite-dark)}
     .hero p{margin:0 0 18px;color:var(--muted)}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      font-weight:700;
-      background:var(--granite-mid);
-      color:#fff;
-      text-decoration:none;
-    }
-    .hero-visual{
-      display:grid;place-items:center;
-      padding:14px;
-      background:#fff;
-      border-radius:var(--radius);
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    }
-    .section { margin-top:28px; }
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;background:var(--granite-mid);color:#fff;text-decoration:none}
+    .btn:focus{outline:3px solid #ffffff44}
+    .hero-visual{display:grid;place-items:center;padding:14px;background:var(--card-bg);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+
+    .section{margin-top:28px}
     .section h2{color:var(--granite-dark);margin:0 0 12px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
-    .card{
-      background:#fff;
-      padding:14px;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-      display:flex;gap:12px;align-items:flex-start;
-    }
-    .cover{
-      width:72px;height:72px;border-radius:6px;flex-shrink:0;
-      display:grid;place-items:center;
-      font-weight:700;
-      background:linear-gradient(135deg,#d1d5db,#9ca3af);
-      color:#111827;
-    }
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap)}
+    .card{background:var(--card-bg);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;gap:12px;align-items:flex-start}
+    .cover{width:72px;height:72px;border-radius:6px;flex-shrink:0;display:grid;place-items:center;font-weight:700;background:linear-gradient(135deg,#d1d5db,#9ca3af);color:#111827}
     .card h3{margin:0;font-size:16px;color:var(--granite-dark)}
     .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
-    footer{
-      margin-top:40px;
-      background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));
-      color:#fff;
-      padding:20px 0;
-      text-align:center
+
+    footer{margin-top:40px;background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));color:#fff;padding:20px 0;text-align:center}
+
+    /* Small screens: stack hero and hide nav links behind a toggle */
+    @media (max-width: 767px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{order:-1}
+      .nav-links{display:none;position:absolute;right:var(--page-padding);top:64px;background:linear-gradient(180deg,var(--granite-mid),var(--granite-dark));padding:10px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.2);flex-direction:column;min-width:180px}
+      .nav-links.show{display:flex}
+      .nav-toggle button{background:transparent;border:2px solid #ffffff30;padding:8px;border-radius:8px;color:#fff}
+      .brand .text{display:none}
     }
+
+    /* Larger screens: improve spacing */
+    @media (min-width: 768px){
+      .container{padding:0 28px}
+      .hero h1{font-size:32px}
+    }
+
+    @media (min-width: 1100px){
+      .hero{grid-template-columns:1fr 480px}
+    }
+
+    /* Focus + keyboard visibility */
+    :focus{outline-offset:3px}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+
+    /* Utility to keep footer readable on small screens */
+    footer small{display:block;opacity:0.95}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header>
-    <div class="container nav">
+    <div class="container nav" role="navigation" aria-label="Primary">
       <div class="brand">
-        <div class="logo">AI</div>
-        <div>
+        <div class="logo" aria-hidden="true">AI</div>
+        <div class="text">
           <div style="font-size:15px">Artificial Intelligence Department</div>
-          <div style="font-size:12px;opacity:.9">2025 Symposium — AI & DS</div>
+          <div style="font-size:12px;opacity:.95">2025 Symposium — AI &amp; DS</div>
         </div>
       </div>
-      <nav>
-        <a href="#portfolio">Events</a>
-        <a href="#about">About</a>
-        <a href="#register">Register</a>
-      </nav>
+
+      <div class="nav-toggle" aria-hidden="false">
+        <nav class="nav-links" id="navLinks">
+          <a href="#portfolio">Events</a>
+          <a href="#about">About</a>
+          <a href="#register">Register</a>
+        </nav>
+
+        <button id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-card">
-        <h1>2025 Symposium — AI & Data Science</h1>
-        <p>Welcome to our department symposium. Explore exciting technical events, showcase your skills, and participate in competitions designed for innovators like you.</p>
+        <h1 id="hero-heading">2025 Symposium — AI &amp; Data Science</h1>
+        <p>Welcome to our department symposium. Explore technical events, showcase your skills, and participate in competitions designed for innovators like you.</p>
+        <p style="margin:0 0 18px;font-size:14px;color:var(--muted)">Event Date: <strong>March 15, 2025</strong></p>
         <a class="btn" href="#portfolio">View Events</a>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Need help registering? Email <a href="mailto:ai-dept@example.edu">ai-dept@example.edu</a></p>
       </div>
 
-      <div class="hero-visual">
-        <svg width="320" height="200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="40" width="260" height="30" rx="8" fill="#d1d5db"/>
-          <rect x="20" y="90" width="260" height="30" rx="8" fill="#9ca3af"/>
-          <rect x="20" y="140" width="260" height="30" rx="8" fill="#6b7280"/>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 360 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Symposium graphic">
+          <rect x="20" y="40" width="320" height="30" rx="8" fill="#d1d5db"/>
+          <rect x="20" y="90" width="320" height="30" rx="8" fill="#9ca3af"/>
+          <rect x="20" y="140" width="320" height="30" rx="8" fill="#6b7280"/>
           <text x="40" y="60" font-size="14" fill="#111827">2025 Symposium</text>
-          <text x="40" y="110" font-size="14" fill="#111827">AI & DS Department</text>
+          <text x="40" y="110" font-size="14" fill="#111827">AI &amp; DS Department</text>
           <text x="40" y="160" font-size="14" fill="#111827">Portfolio Events</text>
         </svg>
       </div>
     </section>
 
     <!-- Events -->
-    <section id="portfolio" class="section">
-      <h2>Symposium Events</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="cover">PP</div>
+    <section id="portfolio" class="section" aria-labelledby="events-heading">
+      <h2 id="events-heading">Symposium Events</h2>
+      <div class="grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="pp-title">
+          <div class="cover" aria-hidden="true">💡</div>
           <div>
-            <h3>Paper Presentation</h3>
+            <h3 id="pp-title">Paper Presentation</h3>
             <p>Showcase your innovative research ideas in Artificial Intelligence and Data Science.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="cover">TQ</div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="tq-title">
+          <div class="cover" aria-hidden="true">❓</div>
           <div>
-            <h3>Technical Quiz</h3>
+            <h3 id="tq-title">Technical Quiz</h3>
             <p>Test your knowledge in computer science, AI, and trending technologies.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="cover">CD</div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="cd-title">
+          <div class="cover" aria-hidden="true">💻</div>
           <div>
-            <h3>Coding Challenge</h3>
+            <h3 id="cd-title">Coding Challenge</h3>
             <p>Solve problems and algorithms within the given time frame.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="cover">DB</div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="db-title">
+          <div class="cover" aria-hidden="true">🔍</div>
           <div>
-            <h3>Debugging</h3>
+            <h3 id="db-title">Debugging</h3>
             <p>Fix errors in code snippets and showcase your problem-solving skills.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="cover">PE</div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="pe-title">
+          <div class="cover" aria-hidden="true">🧩</div>
           <div>
-            <h3>Project Expo</h3>
+            <h3 id="pe-title">Project Expo</h3>
             <p>Present your projects and innovations in AI and DS fields.</p>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="section">
-      <h2>About the Symposium</h2>
-      <p>The 2025 AI & DS Symposium is organized by the Artificial Intelligence Department. This symposium provides a platform for students to exhibit technical talents, collaborate, and compete in various events.</p>
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About the Symposium</h2>
+      <p>The 2025 AI &amp; DS Symposium is organized by the Artificial Intelligence Department. This symposium provides a platform for students to exhibit technical talents, collaborate, and compete in various events.</p>
     </section>
 
     <!-- Register -->
-    <section id="register" class="section">
-      <h2>Register Now</h2>
+    <section id="register" class="section" aria-labelledby="register-heading">
+      <h2 id="register-heading">Register Now</h2>
       <p>Click the button below to register for the 2025 Symposium.</p>
-      <a class="btn" href="https://forms.gle/YOUR_FORM_LINK" target="_blank">Register Here</a>
+      <a class="btn" href="https://forms.gle/YOUR_FORM_LINK" target="_blank" rel="noopener noreferrer">Register Here</a>
     </section>
   </main>
 
   <footer>
-    © 2025 Artificial Intelligence Department — Symposium AI & DS
+    <div class="container">
+      <small>© 2025 Artificial Intelligence Department — Symposium AI &amp; DS</small>
+    </div>
   </footer>
+
+  <script>
+    // Simple nav toggle for small screens
+    (function(){
+      const btn = document.getElementById('navBtn');
+      const links = document.getElementById('navLinks');
+      if(!btn || !links) return;
+      btn.addEventListener('click', ()=>{
+        const showing = links.classList.toggle('show');
+        btn.setAttribute('aria-expanded', showing);
+      });
+
+      // Close nav when clicking outside
+      document.addEventListener('click', (e)=>{
+        if(window.innerWidth > 767) return;
+        if(!links.classList.contains('show')) return;
+        if(e.target === btn || links.contains(e.target)) return;
+        links.classList.remove('show');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+
+      // Improve keyboard navigation: close on Escape
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape'){
+          links.classList.remove('show');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
+
