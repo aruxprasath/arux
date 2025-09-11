@@ -66,6 +66,9 @@
       background:var(--card-bg);border-radius:var(--radius);padding:24px;
       box-shadow:0 6px 20px rgba(0,0,0,0.06);
       animation: slideFade 420ms ease forwards;
+      /* --- MODIFIED FOR MOBILE --- */
+      width: 100%; /* Ensure it takes full available width on mobile */
+      box-sizing: border-box; /* Include padding in width */
     }
     @keyframes slideFade { from {opacity: 0; transform: translateY(6px);} to {opacity: 1; transform: translateY(0);} }
 
@@ -173,6 +176,13 @@
       }
       .grid {
         grid-template-columns: 1fr; /* Event cards stack on mobile */
+      }
+      /* --- SPECIFIC CHANGE FOR HERO CARD --- */
+      .hero-card {
+        width: 100%; /* Make hero card take full width */
+        box-sizing: border-box; /* Include padding in the width */
+        padding: 18px; /* Slightly reduced padding for mobile */
+        margin-left: 0; /* Remove any potential left margin */
       }
     }
   </style>
