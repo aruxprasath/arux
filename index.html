@@ -5,176 +5,269 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Inteleza — 2025 Symposium</title>
   <style>
-    :root{
-      --granite-dark:#374151;
-      --granite-mid:#4b5563;
-      --granite-light:#9ca3af;
-      --muted:#6b7280;
-      --card-bg: #ffffff;
-      --radius:12px;
-      --max-width:1100px;
-      --gap:18px;
-      --page-padding:18px;
-      --accent:#0f172a;
-      --text-base:16px;
-    }
+:root {
+  --granite-dark:#374151;
+  --granite-mid:#4b5563;
+  --granite-light:#9ca3af;
+  --muted:#6b7280;
+  --card-bg:#ffffff;
+  --radius:12px;
+  --max-width:1100px;
+  --gap:18px;
+  --page-padding:18px;
+  --accent:#0f172a;
+  --text-base:16px;
+}
 
-    *,*::before,*::after{box-sizing:border-box}
-    html{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased;}
-    body{
-      margin:0;color:#111827;background:linear-gradient(135deg,#e5e5e5 0%, #f5f5f5 100%);
-      line-height:1.4;font-size:var(--text-base);
-      animation: fadeIn 300ms ease-in-out;
-    }
-    @keyframes fadeIn { from {opacity: 0; transform: translateY(6px);} to {opacity: 1; transform: translateY(0);} }
+*,*::before,*::after { box-sizing:border-box }
+html {
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  -webkit-font-smoothing:antialiased;
+}
+body {
+  margin:0;
+  color:#111827;
+  background:linear-gradient(135deg,#e5e5e5 0%, #f5f5f5 100%);
+  line-height:1.5;
+  font-size:var(--text-base);
+  animation:fadeIn 300ms ease-in-out;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
 
-    a{color:inherit;text-decoration:none}
-    button{font-family:inherit}
+a { color:inherit; text-decoration:none }
+button { font-family:inherit; cursor:pointer }
 
-    .skip-link{position:absolute;left:12px;top:-44px;padding:8px 12px;background:#111827;color:#fff;border-radius:6px;z-index:100;}
-    .skip-link:focus{top:12px}
+.skip-link {
+  position:absolute; left:12px; top:-44px;
+  padding:8px 12px; background:#111827; color:#fff;
+  border-radius:6px; z-index:100;
+}
+.skip-link:focus { top:12px }
 
-    header{
-      background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));
-      color:#fff;padding:12px 0;position:sticky;top:0;z-index:60;
-      transition: all 220ms ease;
-      backdrop-filter: blur(6px);
-    }
-    header.scrolled{
-      background:var(--granite-dark);
-      padding:8px 0;
-      box-shadow:0 6px 18px rgba(0,0,0,0.18);
-    }
+header {
+  background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));
+  color:#fff; padding:12px 0; position:sticky; top:0; z-index:60;
+  transition:all 220ms ease;
+  backdrop-filter:blur(6px);
+}
+header.scrolled {
+  background:var(--granite-dark);
+  padding:8px 0;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
 
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-padding);width:100%}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand .logo{width:42px;height:42px;border-radius:8px;background:#ffffff22;display:grid;place-items:center;font-weight:800}
+.container {
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--page-padding);
+  width:100%;
+}
 
-    .nav-toggle{display:flex;align-items:center;gap:10px;position:relative}
-    .nav-links{display:flex;gap:12px}
-    nav a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:15px}
-    nav a:focus{outline:3px solid #ffffff44}
-    
-    /* MOBILE NAV STYLES - DESKTOP HIDDEN */
-    .nav-toggle #navBtn { display: none; }
+.nav { display:flex; align-items:center; justify-content:space-between; gap:12px }
+.brand { display:flex; align-items:center; gap:12px; font-weight:700 }
+.brand .logo {
+  width:42px; height:42px; border-radius:8px;
+  background:#ffffff22; display:grid; place-items:center; font-weight:800;
+}
 
-    main{padding:20px 0 60px}
+.nav-toggle { display:flex; align-items:center; gap:10px; position:relative }
+.nav-links { display:flex; gap:12px }
+nav a { color:#fff; padding:8px 10px; border-radius:8px; font-weight:600; font-size:15px }
+nav a:focus { outline:3px solid #ffffff44 }
+.nav-toggle #navBtn { display:none }
 
-    .hero{display:grid;grid-template-columns:1fr 480px;gap:18px;align-items:start;margin-top:12px}
-    .hero-card{
-      background:var(--card-bg);border-radius:var(--radius);padding:24px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.06);
-      animation: slideFade 420ms ease forwards;
-    }
-    @keyframes slideFade { from {opacity: 0; transform: translateY(6px);} to {opacity: 1; transform: translateY(0);} }
+main { padding:20px 0 60px }
 
-    .hero h1{margin:0 0 8px;font-size:clamp(20px,4vw,28px);color:var(--granite-dark)}
-    .hero p{margin:0 0 12px;color:var(--muted);font-size:0.98rem}
+.hero {
+  display:grid; grid-template-columns:1fr 480px; gap:18px; align-items:start; margin-top:12px;
+}
+.hero-card {
+  background:var(--card-bg); border-radius:var(--radius); padding:24px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  animation:slideFade 420ms ease forwards;
+}
+@keyframes slideFade { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
 
-    .tagline{
-      display:inline-block;
-      font-size:0.92rem;
-      color:var(--granite-mid);
-      border-right:2px solid var(--granite-mid);
-      white-space:nowrap;overflow:hidden;
-      width:100%;
-      max-width:100%;
-      animation: typing 3s steps(40,end) forwards, blink 0.75s step-end infinite;
-      box-sizing:content-box;
-    }
-    @keyframes typing { from {width:0} to {width:100%} }
-    @keyframes blink { 50% {border-color: transparent} }
+.hero h1 { margin:0 0 8px; font-size:clamp(20px,4vw,28px); color:var(--granite-dark) }
+.hero p { margin:0 0 12px; color:var(--muted); font-size:0.98rem }
 
-    .btn{
-      display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;
-      background:var(--granite-mid);color:#fff;margin-top:8px;
-      position: relative;overflow: hidden;text-align:center;
-    }
-    .btn:focus{outline:3px solid #ffffff44}
-    .btn + .btn{margin-left:8px}
-    .btn::after{
-      content:"";position:absolute;top:0;left:-75px;width:50px;height:100%;
-      background:rgba(255,255,255,0.28);transform:skewX(-25deg);animation: shine 3s infinite;
-    }
-    @keyframes shine { 0% {left:-75px;} 100% {left:110%;} }
+.tagline {
+  display:inline-block; font-size:0.92rem; color:var(--granite-mid);
+  border-right:2px solid var(--granite-mid);
+  white-space:nowrap; overflow:hidden; width:100%;
+  animation:typing 3s steps(40,end) forwards,blink 0.75s step-end infinite;
+  box-sizing:content-box;
+}
+@keyframes typing { from{width:0} to{width:100%} }
+@keyframes blink { 50%{border-color:transparent} }
 
-    .hero-visual{display:grid;place-items:center;padding:18px;background:var(--card-bg);border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+.btn {
+  display:inline-block; padding:10px 14px; border-radius:10px; font-weight:700;
+  background:var(--granite-mid); color:#fff; margin-top:8px;
+  position:relative; overflow:hidden; text-align:center; transition:background 220ms ease;
+}
+.btn:hover { background:var(--granite-dark); }
+.btn:focus { outline:3px solid #ffffff44 }
+.btn + .btn { margin-left:8px }
+.btn::after {
+  content:""; position:absolute; top:0; left:-75px; width:50px; height:100%;
+  background:rgba(255,255,255,0.28); transform:skewX(-25deg); animation:shine 3s infinite;
+}
+@keyframes shine { 0%{left:-75px;} 100%{left:110%;} }
 
-    .section{margin-top:22px}
-    .section h2{color:var(--granite-dark);margin:0 0 12px;font-size:1.15rem}
+.hero-visual {
+  display:grid; place-items:center; padding:18px;
+  background:var(--card-bg); border-radius:var(--radius);
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
 
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-    .card{
-      background:var(--card-bg);padding:12px;border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
-      display:flex;gap:12px;align-items:flex-start;
-      transition: transform 260ms ease, box-shadow 260ms ease;
-      opacity:1;transform:none;
-    }
-    .card:hover{transform: translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12)}
-    .cover{width:64px;height:64px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;font-weight:700;background:linear-gradient(135deg,#d1d5db,#9ca3af);color:#111827;transition:transform 260ms ease}
-    .card:hover .cover{transform: rotate(10deg) scale(1.05)}
-    .card h3{margin:0;font-size:16px;color:var(--granite-dark)}
-    .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.section { margin-top:22px }
+.section h2 { color:var(--granite-dark); margin:0 0 12px; font-size:1.15rem }
 
-    footer{margin-top:30px;background: linear-gradient(270deg, #4b5563, #0f172a, #6b7280);background-size: 600% 600%;animation: gradientMove 12s ease infinite;color:#fff;padding:18px 0;text-align:center}
-    @keyframes gradientMove { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
-    footer small{display:block;opacity:0.95;font-size:0.95rem}
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--gap) }
+.card {
+  background:var(--card-bg); padding:12px; border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  display:flex; gap:12px; align-items:flex-start;
+  transition:transform 260ms ease,box-shadow 260ms ease;
+}
+.card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.12) }
+.cover {
+  width:64px; height:64px; border-radius:8px; flex-shrink:0;
+  display:grid; place-items:center; font-weight:700;
+  background:linear-gradient(135deg,#d1d5db,#9ca3af); color:#111827;
+  transition:transform 260ms ease;
+}
+.card:hover .cover { transform:rotate(10deg) scale(1.05) }
+.card h3 { margin:0; font-size:16px; color:var(--granite-dark) }
+.card p { margin:6px 0 0; color:var(--muted); font-size:13px }
 
-    .muted{color:var(--muted);font-size:0.95rem}
+footer {
+  margin-top:30px;
+  background:linear-gradient(270deg,#4b5563,#0f172a,#6b7280);
+  background-size:600% 600%;
+  animation:gradientMove 12s ease infinite;
+  color:#fff; padding:18px 0; text-align:center;
+}
+@keyframes gradientMove {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+footer small { display:block; opacity:0.95; font-size:0.95rem }
 
-    /* --- MOBILE-SPECIFIC STYLES --- */
-    @media (max-width: 767px) {
-      .hero {
-        grid-template-columns: 1fr; /* Hero section stacks on mobile */
-      }
-      .hero-visual {
-        display: none; /* Hide the SVG graphic on small screens */
-      }
-      .nav {
-        flex-direction: column; /* Stack nav items */
-        align-items: flex-start;
-      }
-      .nav-links {
-        display: none; /* Hide nav links by default */
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-        margin-top: 12px;
-        position: absolute;
-        top: 60px; /* Adjust as needed based on header height */
-        left: 0;
-        background: var(--granite-dark);
-        border-radius: 0 0 var(--radius) var(--radius);
-        padding: 12px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-      }
-      .nav-links.show {
-        display: flex; /* Show nav links when .show class is added by JS */
-      }
-      .nav-links a {
-        padding: 12px;
-        width: 100%;
-        font-size: 16px;
-      }
-      .nav-toggle {
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .nav-toggle #navBtn {
-        display: block; /* Show the hamburger button */
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 24px;
-        cursor: pointer;
-      }
-      .grid {
-        grid-template-columns: 1fr; /* Event cards stack on mobile */
-      }
-    }
+/* =============================
+   Responsive
+============================= */
+@media (max-width:767px) {
+  .container {
+    padding: 0 10px; /* FIX: reduce padding for perfect landing */
+  }
+
+  .hero {
+    grid-template-columns:1fr;
+    margin-top:8px;
+    padding:0;
+  }
+
+  .hero-visual { display:none }
+
+  .hero-card {
+    padding:14px;
+    max-width:100%;
+    font-size:0.9rem;
+  }
+
+  .hero h1 {
+    font-size:1.1rem;
+    line-height:1.3;
+  }
+
+  .hero p {
+    font-size:0.85rem;
+    line-height:1.4;
+  }
+
+  .btn {
+    width:100%;
+    text-align:center;
+    margin-left:0 !important;
+  }
+
+  .nav {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .nav-links {
+    display:none; flex-direction:column; width:100%; margin-top:12px;
+    position:absolute; top:60px; left:0;
+    background:var(--granite-dark);
+    border-radius:0 0 var(--radius) var(--radius);
+    padding:12px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.25);
+  }
+  .nav-links.show { display:flex }
+  .nav-links a { padding:12px; width:100%; font-size:16px }
+  .nav-toggle { width:100%; justify-content:space-between; align-items:center }
+  .nav-toggle #navBtn { display:block; background:none; border:none; color:#fff; font-size:24px }
+
+  .grid { grid-template-columns:1fr }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .hero { grid-template-columns:1fr 1fr }
+  .grid { grid-template-columns:repeat(2,1fr) }
+}
+@media (min-width:992px) and (max-width:1199px) {
+  .hero { grid-template-columns:1fr 400px }
+  .grid { grid-template-columns:repeat(3,1fr) }
+}
+@media (min-width:1200px) and (max-width:1599px) {
+  .grid { grid-template-columns:repeat(4,1fr) }
+}
+@media (min-width:1600px) {
+  body { font-size:18px }
+  .container { max-width:1400px }
+  .grid { grid-template-columns:repeat(5,1fr) }
+}
+
+
+
+
+/* Mobile hero adjustments */
+@media (max-width:767px) {
+  .hero-card {
+    padding:12px 10px !important;
+    font-size:14px;
+  }
+  .hero-card h1 {
+    font-size:clamp(1rem,4vw,1.3rem);
+    margin-bottom:6px;
+  }
+  .hero-card p {
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .hero-card .tagline {
+    font-size:11px;
+    border-right:1.5px solid var(--granite-mid);
+  }
+  .hero-card div[style*="display:flex"] {
+    flex-direction:column;
+    gap:6px;
+  }
+  .btn {
+    font-size:13px;
+    padding:8px 10px;
+    min-height:36px;
+  }
+}
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -188,15 +281,12 @@
           <div style="font-size:12px;opacity:.95">Inteleza 2025 — AI, DS & IT</div>
         </div>
       </div>
-
       <div class="nav-toggle">
-        <button id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
-          ☰
-        </button>
-        <nav class="nav-links" id="navLinks" aria-label="Primary links">
-          <a href="#portfolio" class="nav-link">Events</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#register" class="nav-link">Register</a>
+        <button id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#portfolio">Events</a>
+          <a href="#about">About</a>
+          <a href="#register">Register</a>
         </nav>
       </div>
     </div>
@@ -207,153 +297,63 @@
       <div class="hero-card">
         <h1 id="hero-heading">Welcome to Inteleza — 2025 Symposium</h1>
         <p class="tagline">ARTIFICIAL INTELLIGENCE, DATA SCIENCE AND INFORMATION TECHNOLOGY</p>
-        <p>Welcome to Inteleza 2025 Symposium. This event brings together students, researchers, and industry partners from the Department of Artificial Intelligence, Data Science and Information Technology to share ideas, present projects, and compete in technical events.</p>
-
+        <p>Welcome to Inteleza 2025 Symposium. This event brings together students, researchers, and industry partners to share ideas, present projects, and compete in technical events.</p>
         <p style="margin:0 0 12px;font-size:14px;color:var(--muted)">Event Date: <strong>March 24, 2025</strong></p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a class="btn" href="#portfolio" role="button">View Inteleza Events</a>
-          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer" role="button">Register for Inteleza</a>
+          <a class="btn" href="#portfolio">View Inteleza Events</a>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Register for Inteleza</a>
         </div>
-
-        <p style="margin-top:12px;color:var(--muted);font-size:13px">Need help registering? Email <a href="mailto:ai-dept@example.edu">ai-dept@example.edu</a></p>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Need help? Email <a href="mailto:ai-dept@example.edu">ai-dept@example.edu</a></p>
       </div>
-
       <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 360 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Symposium graphic">
+        <svg viewBox="0 0 360 220" width="100%" xmlns="http://www.w3.org/2000/svg">
           <rect x="20" y="40" width="320" height="30" rx="8" fill="#d1d5db"/>
           <rect x="20" y="90" width="320" height="30" rx="8" fill="#9ca3af"/>
           <rect x="20" y="140" width="320" height="30" rx="8" fill="#6b7280"/>
           <text x="40" y="60" font-size="14" fill="#111827">Inteleza 2025 Symposium</text>
           <text x="40" y="110" font-size="14" fill="#111827">AI, DS & IT Department</text>
-          <text x="40" y="160" font-size="14" fill="#111827">Portfolio Events</text>
+          <text x="40" y="160" font-size="14" fill="#111827">Events</text>
         </svg>
       </div>
     </section>
 
-    <section id="portfolio" class="section" aria-labelledby="events-heading">
-      <h2 id="events-heading">Symposium Events</h2>
-      <div class="grid" role="list">
-        <article class="card" role="listitem" aria-labelledby="event1-title">
-          <div class="cover" aria-hidden="true">💡</div>
-          <div>
-            <h3 id="event1-title">Papper Presentation</h3>
-            <p>Showcase your innovative research ideas in AI, DS & IT.</p>
-            <a class="btn" href="pp.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event2-title">
-          <div class="cover" aria-hidden="true">❓</div>
-          <div>
-            <h3 id="event2-title">Bug Buster</h3>
-            <p>Test your knowledge in computer science, AI, DS & IT, and trending technologies.</p>
-            <a class="btn" href="event2-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event3-title">
-          <div class="cover" aria-hidden="true">💻</div>
-          <div>
-            <h3 id="event3-title">Picxel Craft</h3>
-            <p>Solve problems and algorithms within the given time frame.</p>
-            <a class="btn" href="event3-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event4-title">
-          <div class="cover" aria-hidden="true">🔍</div>
-          <div>
-            <h3 id="event4-title">Mind Spark</h3>
-            <p>Fix errors in code snippets and showcase your problem-solving skills.</p>
-            <a class="btn" href="event4-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event5-title">
-          <div class="cover" aria-hidden="true">🧩</div>
-          <div>
-            <h3 id="event5-title">Logo and Memes</h3>
-            <p>Present your projects and innovations in AI, DS & IT fields.</p>
-            <a class="btn" href="event5-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event6-title">
-          <div class="cover" aria-hidden="true">🎨</div>
-          <div>
-            <h3 id="event6-title">Master Mind</h3>
-            <p>Collaborative design challenge for innovative solutions.</p>
-            <a class="btn" href="event6-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event7-title">
-          <div class="cover" aria-hidden="true">🤖</div>
-          <div>
-            <h3 id="event7-title">Adzia</h3>
-            <p>Create intelligent bots and test AI capabilities.</p>
-            <a class="btn" href="event7-details.html">Show More Details</a>
-          </div>
-        </article>
-        <article class="card" role="listitem" aria-labelledby="event8-title">
-          <div class="cover" aria-hidden="true">📊</div>
-          <div>
-            <h3 id="event8-title">Minute to Minute</h3>
-            <p>Analyze datasets and present meaningful insights.</p>
-            <a class="btn" href="event8-details.html">Show More Details</a>
-          </div>
-        </article>
+    <section id="portfolio" class="section">
+      <h2>Symposium Events</h2>
+      <div class="grid">
+        <article class="card"><div class="cover">💡</div><div><h3>Papetrix</h3><p>Showcase your research in AI, DS & IT.</p><a class="btn" href="pp.html">More Details</a></div></article>
+        <article class="card"><div class="cover">❓</div><div><h3>Bug Buster</h3><p>Quiz on AI, DS, IT & trending tech.</p><a class="btn" href="event2.html">More Details</a></div></article>
+        <article class="card"><div class="cover">💻</div><div><h3>Pixel Craft</h3><p>Algorithm & problem-solving challenge.</p><a class="btn" href="event3.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🔍</div><div><h3>Mind Spark</h3><p>Fix code errors & debug smartly.</p><a class="btn" href="Mindspark.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🧩</div><div><h3>Logo & Memes</h3><p>Creative design and meme event.</p><a class="btn" href="event5.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🎨</div><div><h3>Master Mind</h3><p>Collaborative design challenge.</p><a class="btn" href="Master Minds.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🎤</div><div><h3>Connections</h3><p>Express your innovative ideas.</p><a class="btn" href="event7.html">More Details</a></div></article>
       </div>
     </section>
 
-    <section id="about" class="section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About the Symposium</h2>
-      <p>The Inteleza 2025 AI, DS & IT Symposium is organized by the Department of Artificial Intelligence, Data Science and Information Technology. This symposium provides a platform for students to exhibit technical talents, collaborate, and compete in a variety of events.</p>
+    <section id="about" class="section">
+      <h2>About Inteleza</h2>
+      <p>Inteleza is the annual symposium of the Department of AI, DS & IT. Our mission is to foster collaboration, showcase innovation, and drive knowledge sharing in emerging technologies.</p>
     </section>
 
-    <section id="register" class="section" aria-labelledby="register-heading">
-      <h2 id="register-heading">Register Now</h2>
-      <p>Click the button below to register for Inteleza 2025 Symposium.</p>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Register Here</a>
+    <section id="register" class="section">
+      <h2>Register for Inteleza 2025</h2>
+      <p>Join us on <strong>March 24, 2025</strong> for an unforgettable experience filled with learning, collaboration, and innovation.</p>
+      <p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Register Now</a></p>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <small>© 2025 Inteleza — AI, DS & IT Symposium</small>
-    </div>
-  </footer>
+  <footer><div class="container"><small>&copy; 2025 Department of AI, DS & IT. All rights reserved.</small></div></footer>
 
   <script>
-    const headerEl = document.querySelector('header');
-    window.addEventListener('scroll', ()=> {
-      headerEl.classList.toggle('scrolled', window.scrollY > 20);
+    // NAV TOGGLE
+    document.getElementById("navBtn").addEventListener("click",function(){
+      let navLinks=document.getElementById("navLinks");
+      let expanded=this.getAttribute("aria-expanded")==="true";
+      this.setAttribute("aria-expanded",!expanded);
+      navLinks.classList.toggle("show");
     });
-
-    (function(){
-      const btn = document.getElementById('navBtn');
-      const links = document.getElementById('navLinks');
-      if(!btn || !links) return;
-
-      btn.addEventListener('click', ()=> {
-        const showing = links.classList.toggle('show');
-        btn.setAttribute('aria-expanded', showing ? "true" : "false");
-      });
-
-      Array.from(links.querySelectorAll('.nav-link')).forEach(a=>{
-        a.addEventListener('click', ()=> {
-          if(links.classList.contains('show')){
-            links.classList.remove('show');
-            btn.setAttribute('aria-expanded', "false");
-          }
-        });
-      });
-
-      document.addEventListener('click', (e)=>{
-        if(window.innerWidth <= 767){
-          if(!links.contains(e.target) && !btn.contains(e.target)){
-            if(links.classList.contains('show')){
-              links.classList.remove('show');
-              btn.setAttribute('aria-expanded', "false");
-            }
-          }
-        }
-      });
-    })();
+    // HEADER SCROLL EFFECT
+    window.addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("scrolled",window.scrollY>10);});
   </script>
 </body>
 </html>
