@@ -1,77 +1,360 @@
-<!-- Master Minds Event HTML -->
-<section id="master-minds-event" style="max-width:850px;margin:30px auto;padding:24px;border:2px solid #222;border-radius:6px;font-family:Arial, Helvetica, sans-serif;line-height:1.5;">
-  <header style="text-align:center;margin-bottom:18px;">
-    <h2 style="margin:0;color:#0a2c82;">Arasu Engineering College - Kumbakonam - 612501</h2>
-    <p style="margin:6px 0;font-weight:600;color:#a61919;">
-      Department of Artificial Intelligence and Data Science<br/>
-      Department of Information Technology
-    </p>
-    <h1 style="margin:10px 0;font-size:24px;">INTELEZA’25</h1>
-    <h3 style="margin:6px 0;color:#d11;">Master Minds</h3>
-    <p style="margin:6px 0;"><strong>Date:</strong> September 24, 2025</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Inteleza — 2025 Symposium</title>
+  <style>
+:root {
+  --granite-dark:#374151;
+  --granite-mid:#4b5563;
+  --granite-light:#9ca3af;
+  --muted:#6b7280;
+  --card-bg:#ffffff;
+  --radius:12px;
+  --max-width:1100px;
+  --gap:18px;
+  --page-padding:18px;
+  --accent:#0f172a;
+  --text-base:16px;
+}
+
+*,*::before,*::after { box-sizing:border-box }
+html {
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  -webkit-font-smoothing:antialiased;
+}
+body {
+  margin:0;
+  color:#111827;
+  background:linear-gradient(135deg,#e5e5e5 0%, #f5f5f5 100%);
+  line-height:1.5;
+  font-size:var(--text-base);
+  animation:fadeIn 300ms ease-in-out;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+
+a { color:inherit; text-decoration:none }
+button { font-family:inherit; cursor:pointer }
+
+.skip-link {
+  position:absolute; left:12px; top:-44px;
+  padding:8px 12px; background:#111827; color:#fff;
+  border-radius:6px; z-index:100;
+}
+.skip-link:focus { top:12px }
+
+header {
+  background:linear-gradient(90deg,var(--granite-mid),var(--granite-dark));
+  color:#fff; padding:12px 0; position:sticky; top:0; z-index:60;
+  transition:all 220ms ease;
+  backdrop-filter:blur(6px);
+}
+header.scrolled {
+  background:var(--granite-dark);
+  padding:8px 0;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
+
+.container {
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--page-padding);
+  width:100%;
+}
+
+.nav { display:flex; align-items:center; justify-content:space-between; gap:12px }
+.brand { display:flex; align-items:center; gap:12px; font-weight:700 }
+.brand .logo {
+  width:42px; height:42px; border-radius:8px;
+  background:#ffffff22; display:grid; place-items:center; font-weight:800;
+}
+
+.nav-toggle { display:flex; align-items:center; gap:10px; position:relative }
+.nav-links { display:flex; gap:12px }
+nav a { color:#fff; padding:8px 10px; border-radius:8px; font-weight:600; font-size:15px }
+nav a:focus { outline:3px solid #ffffff44 }
+.nav-toggle #navBtn { display:none }
+
+main { padding:20px 0 60px }
+
+.hero {
+  display:grid; grid-template-columns:1fr 480px; gap:18px; align-items:start; margin-top:12px;
+}
+.hero-card {
+  background:var(--card-bg); border-radius:var(--radius); padding:24px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  animation:slideFade 420ms ease forwards;
+}
+@keyframes slideFade { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+
+.hero h1 { margin:0 0 8px; font-size:clamp(20px,4vw,28px); color:var(--granite-dark) }
+.hero p { margin:0 0 12px; color:var(--muted); font-size:0.98rem }
+
+.tagline {
+  display:inline-block; font-size:0.92rem; color:var(--granite-mid);
+  border-right:2px solid var(--granite-mid);
+  white-space:nowrap; overflow:hidden; width:100%;
+  animation:typing 3s steps(40,end) forwards,blink 0.75s step-end infinite;
+  box-sizing:content-box;
+}
+@keyframes typing { from{width:0} to{width:100%} }
+@keyframes blink { 50%{border-color:transparent} }
+
+.btn {
+  display:inline-block; padding:10px 14px; border-radius:10px; font-weight:700;
+  background:var(--granite-mid); color:#fff; margin-top:8px;
+  position:relative; overflow:hidden; text-align:center; transition:background 220ms ease;
+}
+.btn:hover { background:var(--granite-dark); }
+.btn:focus { outline:3px solid #ffffff44 }
+.btn + .btn { margin-left:8px }
+.btn::after {
+  content:""; position:absolute; top:0; left:-75px; width:50px; height:100%;
+  background:rgba(255,255,255,0.28); transform:skewX(-25deg); animation:shine 3s infinite;
+}
+@keyframes shine { 0%{left:-75px;} 100%{left:110%;} }
+
+.hero-visual {
+  display:grid; place-items:center; padding:18px;
+  background:var(--card-bg); border-radius:var(--radius);
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.section { margin-top:22px }
+.section h2 { color:var(--granite-dark); margin:0 0 12px; font-size:1.15rem }
+
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--gap) }
+.card {
+  background:var(--card-bg); padding:12px; border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  display:flex; gap:12px; align-items:flex-start;
+  transition:transform 260ms ease,box-shadow 260ms ease;
+}
+.card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.12) }
+.cover {
+  width:64px; height:64px; border-radius:8px; flex-shrink:0;
+  display:grid; place-items:center; font-weight:700;
+  background:linear-gradient(135deg,#d1d5db,#9ca3af); color:#111827;
+  transition:transform 260ms ease;
+}
+.card:hover .cover { transform:rotate(10deg) scale(1.05) }
+.card h3 { margin:0; font-size:16px; color:var(--granite-dark) }
+.card p { margin:6px 0 0; color:var(--muted); font-size:13px }
+
+footer {
+  margin-top:30px;
+  background:linear-gradient(270deg,#4b5563,#0f172a,#6b7280);
+  background-size:600% 600%;
+  animation:gradientMove 12s ease infinite;
+  color:#fff; padding:18px 0; text-align:center;
+}
+@keyframes gradientMove {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+footer small { display:block; opacity:0.95; font-size:0.95rem }
+
+/* =============================
+   Responsive
+============================= */
+@media (max-width:767px) {
+  .container {
+    padding: 0 10px; /* FIX: reduce padding for perfect landing */
+  }
+
+  .hero {
+    grid-template-columns:1fr;
+    margin-top:8px;
+    padding:0;
+  }
+
+  .hero-visual { display:none }
+
+  .hero-card {
+    padding:14px;
+    max-width:100%;
+    font-size:0.9rem;
+  }
+
+  .hero h1 {
+    font-size:1.1rem;
+    line-height:1.3;
+  }
+
+  .hero p {
+    font-size:0.85rem;
+    line-height:1.4;
+  }
+
+  .btn {
+    width:100%;
+    text-align:center;
+    margin-left:0 !important;
+  }
+
+  .nav {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .nav-links {
+    display:none; flex-direction:column; width:100%; margin-top:12px;
+    position:absolute; top:60px; left:0;
+    background:var(--granite-dark);
+    border-radius:0 0 var(--radius) var(--radius);
+    padding:12px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.25);
+  }
+  .nav-links.show { display:flex }
+  .nav-links a { padding:12px; width:100%; font-size:16px }
+  .nav-toggle { width:100%; justify-content:space-between; align-items:center }
+  .nav-toggle #navBtn { display:block; background:none; border:none; color:#fff; font-size:24px }
+
+  .grid { grid-template-columns:1fr }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .hero { grid-template-columns:1fr 1fr }
+  .grid { grid-template-columns:repeat(2,1fr) }
+}
+@media (min-width:992px) and (max-width:1199px) {
+  .hero { grid-template-columns:1fr 400px }
+  .grid { grid-template-columns:repeat(3,1fr) }
+}
+@media (min-width:1200px) and (max-width:1599px) {
+  .grid { grid-template-columns:repeat(4,1fr) }
+}
+@media (min-width:1600px) {
+  body { font-size:18px }
+  .container { max-width:1400px }
+  .grid { grid-template-columns:repeat(5,1fr) }
+}
+
+
+
+
+/* Mobile hero adjustments */
+@media (max-width:767px) {
+  .hero-card {
+    padding:12px 10px !important;
+    font-size:14px;
+  }
+  .hero-card h1 {
+    font-size:clamp(1rem,4vw,1.3rem);
+    margin-bottom:6px;
+  }
+  .hero-card p {
+    font-size:12px;
+    margin-bottom:6px;
+  }
+  .hero-card .tagline {
+    font-size:11px;
+    border-right:1.5px solid var(--granite-mid);
+  }
+  .hero-card div[style*="display:flex"] {
+    flex-direction:column;
+    gap:6px;
+  }
+  .btn {
+    font-size:13px;
+    padding:8px 10px;
+    min-height:36px;
+  }
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">AI</div>
+        <div class="text" style="line-height:1.05">
+          <div style="font-size:15px">Artificial Intelligence, Data Science and Information Technology</div>
+          <div style="font-size:12px;opacity:.95">Inteleza 2025 — AI, DS & IT</div>
+        </div>
+      </div>
+      <div class="nav-toggle">
+        <button id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#portfolio">Events</a>
+          <a href="#about">About</a>
+          <a href="#register">Register</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <article>
-    <section style="margin:12px 0;">
-      <h4 style="margin-bottom:6px;">Objective</h4>
-      <p style="color:#333;">
-        Improve participants' logical and analytical skills. Sharpen quick-thinking ability through puzzles and riddles. 
-        Encourage teamwork, creativity, and fun learning in a competitive environment.
-      </p>
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <h1 id="hero-heading">Welcome to Inteleza — 2025 Symposium</h1>
+        <p class="tagline">ARTIFICIAL INTELLIGENCE, DATA SCIENCE AND INFORMATION TECHNOLOGY</p>
+        <p>Welcome to Inteleza 2025 Symposium. This event brings together students, researchers, and industry partners to share ideas, present projects, and compete in technical events.</p>
+        <p style="margin:0 0 12px;font-size:14px;color:var(--muted)">Event Date: <strong>March 24, 2025</strong></p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <a class="btn" href="#portfolio">View Inteleza Events</a>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Register for Inteleza</a>
+        </div>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Need help? Email <a href="mailto:ai-dept@example.edu">: aievents2k@gmail.com</a></p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 360 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="40" width="320" height="30" rx="8" fill="#d1d5db"/>
+          <rect x="20" y="90" width="320" height="30" rx="8" fill="#9ca3af"/>
+          <rect x="20" y="140" width="320" height="30" rx="8" fill="#6b7280"/>
+          <text x="40" y="60" font-size="14" fill="#111827">Inteleza 2025 Symposium</text>
+          <text x="40" y="110" font-size="14" fill="#111827">AI, DS & IT Department</text>
+          <text x="40" y="160" font-size="14" fill="#111827">Events</text>
+        </svg>
+      </div>
     </section>
 
-    <section style="margin:12px 0;">
-      <h4 style="margin-bottom:6px;">Event Format</h4>
-      <table style="border-collapse:collapse;width:100%;margin-top:10px;">
-        <tr>
-          <th style="border:1px solid #444;padding:8px;text-align:left;">Round</th>
-          <th style="border:1px solid #444;padding:8px;text-align:left;">Details</th>
-          <th style="border:1px solid #444;padding:8px;text-align:left;">Time</th>
-          <th style="border:1px solid #444;padding:8px;text-align:left;">Total Marks</th>
-        </tr>
-        <tr>
-          <td style="border:1px solid #444;padding:8px;">Round 1</td>
-          <td style="border:1px solid #444;padding:8px;">Crossword Puzzle (11 Q × 1 mark)<br/>Connection (7 Q × 2 marks)</td>
-          <td style="border:1px solid #444;padding:8px;">15 min</td>
-          <td style="border:1px solid #444;padding:8px;">25</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #444;padding:8px;">Round 2</td>
-          <td style="border:1px solid #444;padding:8px;">Rapid Fire (11 Q × 1 mark)<br/>Jumbled Words (7 Q × 2 marks)</td>
-          <td style="border:1px solid #444;padding:8px;">15 min</td>
-          <td style="border:1px solid #444;padding:8px;">25</td>
-        </tr>
-      </table>
+    <section id="portfolio" class="section">
+      <h2>Symposium Events</h2>
+      <div class="grid">
+        <article class="card"><div class="cover">💡</div><div><h3>Papetrix</h3><p>Showcase your research in AI, DS & IT.</p><a class="btn" href="pp.html">More Details</a></div></article>
+        <article class="card"><div class="cover">❓</div><div><h3>Bug Buster</h3><p>Quiz on AI, DS, IT & trending tech.</p><a class="btn" href="Bug Buster.html">More Details</a></div></article>
+        <article class="card"><div class="cover">💻</div><div><h3>Pixel Craft</h3><p>Algorithm & problem-solving challenge.</p><a class="btn" href="event3.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🔍</div><div><h3>Mind Spark</h3><p>Fix code errors & debug smartly.</p><a class="btn" href="Mindspark.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🧩</div><div><h3>Meme Craft.html</h3><p>Creative design and meme event.</p><a class="btn" href="Meme Craft.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🎨</div><div><h3>Master Mind</h3><p>Collaborative design challenge.</p><a class="btn" href="Master Minds.html">More Details</a></div></article>
+        <article class="card"><div class="cover">🎤</div><div><h3>Adzia</h3><p>Express your innovative ideas.</p><a class="btn" href="event7.html">More Details</a></div></article>
+        <article class="card"><div class="cover">⏱️</div><div><h3>Minute to Minutes</h3><p>Quick thinking and rapid response challenge.</p><a class="btn" href="Minitute to minitute.html">More Details</a></div></article>
+      </div>
     </section>
 
-    <section style="margin:12px 0;">
-      <h4 style="margin-bottom:6px;">Rules & Regulations</h4>
-      <ul style="margin:0 0 6px 20px;color:#333;">
-        <li>Participation is strictly in teams of 2 members.</li>
-        <li>All rounds are time bound; no extra time will be given.</li>
-        <li>Use of mobile phones, calculators, or external help is strictly prohibited.</li>
-        <li>Only answers submitted within time will be evaluated.</li>
-        <li>No negative marking.</li>
-        <li>In case of a tie, a sudden-death riddle/puzzle will decide the winner.</li>
-        <li>Judges’ and organizers’ decisions will be final.</li>
-      </ul>
+    <section id="about" class="section">
+      <h2>About Inteleza</h2>
+      <p>Inteleza is the annual symposium of the Department of AI, DS & IT. Our mission is to faster collaboration, showcase innovation, and drive knowledge sharing in emerging technologies.</p>
     </section>
 
-    <section style="margin:14px 0;">
-      <h4 style="margin-bottom:6px;">Event Organizers</h4>
-      <p><strong>Event Incharge:</strong> Ms. M. Jayasri</p>
-      <p><strong>Event Coordinators:</strong></p>
-      <ul style="margin:0 0 6px 20px;color:#333;">
-        <li>Iyappan. R — 8370273175</li>
-        <li>Ramya. K — 8245536618</li>
-        <li>Abinaya. M</li>
-      </ul>
+    <section id="register" class="section">
+      <h2>Register for Inteleza 2025</h2>
+      <p>Join us on <strong>March 24, 2025</strong> for an unforgettable experience filled with learning, collaboration, and innovation.</p>
+      <p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Amz2oFDp4580zixpqrZWqx4FxtCVBZ77XqohgnaAYOLVoA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Register Now</a></p>
     </section>
+  </main>
 
-    <section style="margin:14px 0;">
-      <p><strong>Total Duration:</strong> 30 minutes</p>
-      <p><strong>Maximum Marks:</strong> 50</p>
-      <p><strong>Winner:</strong> Highest scorer across both rounds</p>
-    </section>
-  </article>
-</section>
+  <footer><div class="container"><small>&copy; 2025 Department of AI, DS & IT. All rights reserved.</small></div></footer>
+
+  <script>
+    // NAV TOGGLE
+    document.getElementById("navBtn").addEventListener("click",function(){
+      let navLinks=document.getElementById("navLinks");
+      let expanded=this.getAttribute("aria-expanded")==="true";
+      this.setAttribute("aria-expanded",!expanded);
+      navLinks.classList.toggle("show");
+    });
+    // HEADER SCROLL EFFECT
+    window.addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("scrolled",window.scrollY>10);});
+  </script>
+</body>
+</html>
