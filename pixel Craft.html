@@ -1,134 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Craft (UI/UX Design) Competition</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .college-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .department {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        .section-title {
-            background-color: #004080;
-            color: white;
-            padding: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        .section-content {
-            margin-bottom: 20px;
-        }
-        .list-item {
-            margin-bottom: 10px;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .event-coordinators {
-            margin-top: 30px;
-            font-weight: bold;
-        }
-        .event-coordinators ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INTELEZA'25 — Pixel Craft (UI/UX Design)</title>
+  <style>
+    :root {
+      --accent-1: #065f46;
+      --accent-2: #1d4ed8;
+      --muted: #374151;
+      --bg: #f3f4f6;
+      --paper: #ffffff;
+      --title: #111827;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+      color: var(--muted);
+    }
+    .container {
+      width: 900px;
+      max-width: 95%;
+      background: var(--paper);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      padding: 36px 48px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .college {
+      font-weight: 700;
+      color: var(--accent-1);
+      font-size: 18px;
+    }
+    .depts {
+      margin-top: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    h1.title {
+      margin: 18px 0 6px;
+      font-size: 24px;
+      color: var(--title);
+    }
+    .subtitle {
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .meta {
+      margin-bottom: 20px;
+    }
+    .date {
+      color: #b91c1c;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .section {
+      margin: 16px 0;
+    }
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      color: var(--accent-2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section p, .section ul {
+      margin: 0;
+      font-size: 14px;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+    .section ul {
+      padding-left: 20px;
+    }
+    .important {
+      border-left: 4px solid var(--accent-2);
+      background: rgba(29,78,216,0.05);
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .contacts {
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .contacts strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--accent-2);
+    }
+    @media(max-width:520px) {
+      .container { padding: 20px; }
+      h1.title { font-size: 20px; }
+      .subtitle { font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="college">ARASU ENGINEERING COLLEGE</div>
+      <div class="depts">
+        Chennai Main Road, Kumbakonam – 612 501 <br/>
+        Department of Artificial Intelligence and Data Science <br/>
+        Department of Information Technology
+      </div>
+      <h1 class="title">INTELEZA'25</h1>
+      <div class="subtitle">PIXEL CRAFT (UI/UX DESIGN)</div>
+    </header>
 
-<div class="container">
-    <div class="header">
-        <div class="college-name">Arasu Engineering College</div>
-        <div class="department">Department of Artificial Intelligence & Data Science and Department of Information Technology</div>
+    <div class="meta">
+      <div class="date">Date: 24/09/2025</div>
     </div>
 
-    <div class="section-title">Pixel Craft (UI/UX Design) – Rules and Regulations</div>
-    <div class="section-content">
-        Date: September 24, 2025
-    </div>
+    <section class="section">
+      <h3>📘 Objective</h3>
+      <p>
+        The main objective of this competition is to test participants’ creativity and problem-solving skills in designing 
+        user-friendly and visually appealing interfaces using Figma.
+      </p>
+    </section>
 
-    <div class="section-content">
-        <p>Dear Participants,</p>
-        <p>We are excited to invite you to participate in **Pixel Craft (UI/UX Design)**, organized by the Department of Artificial Intelligence and Data Science and the Department of Information Technology, Arasu Engineering College. This competition aims to test your creativity and problem-solving skills in designing user-friendly and visually appealing interfaces using **Figma**.</p>
-    </div>
+    <section class="section">
+      <h3>❓ What is UI/UX Design?</h3>
+      <p>
+        UI (User Interface) Design focuses on how an application looks and interacts with the user, while UX (User Experience) 
+        Design focuses on how the user feels when interacting with the application.
+      </p>
+    </section>
 
-    <div class="section-title">Objective</div>
-    <div class="section-content">
-        <p>The main objective of this competition is to test participants’ creativity and problem-solving skills in designing user-friendly and visually appealing interfaces using Figma.</p>
-    </div>
+    <section class="section">
+      <h3>💡 Benefits of UI/UX Design</h3>
+      <ul>
+        <li>Enhances user satisfaction and engagement.</li>
+        <li>Provides easy navigation and better accessibility.</li>
+        <li>Improves product branding and trust.</li>
+        <li>Saves development time and reduces cost.</li>
+      </ul>
+    </section>
 
-    <div class="section-title">What is UI/UX Design?</div>
-    <div class="section-content">
-        <p>**UI (User Interface) Design** focuses on how an application looks and interacts with the user, while **UX (User Experience) Design** focuses on how the user feels when interacting with the application.</p>
-    </div>
+    <section class="section important">
+      <h3>⚠ Important</h3>
+      <p>
+        Problem statement will be given on the spot. Only Figma tool must be used for designing.
+      </p>
+    </section>
 
-    <div class="section-title">Benefits of UI/UX Design</div>
-    <div class="section-content">
-        <ul>
-            <li>Enhances user satisfaction and engagement.</li>
-            <li>Provides easy navigation and better accessibility.</li>
-            <li>Improves product branding and trust.</li>
-            <li>Saves development time and reduces cost.</li>
-        </ul>
-    </div>
+    <section class="section">
+      <h3>📜 Rules</h3>
+      <ul>
+        <li>In-built templates are not allowed.</li>
+        <li>Browser can only be used for downloading images and icons.</li>
+        <li>Software to be used: Figma.</li>
+        <li>Maximum 3 pages only.</li>
+        <li>Time limit: 30 minutes.</li>
+        <li>Figma plugins are allowed.</li>
+        <li>If two or more pages are created, prototype flow is mandatory.</li>
+        <li>Punctuality is important. Late participants will not get extra time.</li>
+        <li>Participants can use their own laptops, but they must create a new prototype during the event.</li>
+      </ul>
+    </section>
 
-    <div class="section-title">Important</div>
-    <div class="section-content">
-        <p>Problem statement will be given on the spot. Only Figma tool must be used for designing.</p>
-    </div>
+    <section class="section contacts">
+      <strong>Event Incharge</strong>
+      Mrs. S. Sathiya
 
-    <div class="section-title">Rules</div>
-    <div class="section-content">
-        <ul>
-            <li>In-built templates are not allowed.</li>
-            <li>Browser can only be used for downloading images and icons.</li>
-            <li>Software to be used: Figma.</li>
-            <li>Maximum 3 pages only.</li>
-            <li>Time limit: 30 minutes.</li>
-            <li>Figma plugins are allowed.</li>
-            <li>If two or more pages are created, prototype flow is mandatory.</li>
-            <li>Punctuality is important. Late participants will not get extra time.</li>
-            <li>Participants can use their own laptops, but they must create a new prototype during the event.</li>
-        </ul>
-    </div>
-
-    <div class="section-title">Event Coordinators:</div>
-    <div class="section-content event-coordinators">
-        <ul>
-            <li>S. Vignesh</li>
-            <li>M. Farhath Zafin</li>
-        </ul>
-    </div>
-</div>
-
+      <strong>Event Coordinators</strong>
+      S. Vignesh – 9087759811 <br/>
+      M. Farhath Zafin – 9500590368
+    </section>
+  </div>
 </body>
 </html>
