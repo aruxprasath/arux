@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
+      margin: 10px;
       line-height: 1.6;
       background: #fdfdfd;
       color: #111;
@@ -15,29 +15,57 @@
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 30px;
+      padding: 20px;
       border: 2px solid #000;
       border-radius: 10px;
       background: #fff;
     }
     h1, h2, h3 {
       text-align: center;
-      margin: 8px 0;
+      margin: 6px 0;
     }
-    h1 { color: red; }
-    h2 { color: orange; }
-    h3 { color: blue; }
-    ul { margin-left: 40px; }
+    h1 { color: red; font-size: 22px; }
+    h2 { color: #222; font-size: 18px; }
+    h3 { color: blue; font-size: 18px; }
+    .event-title {
+      text-align: center;
+      font-size: 22px;
+      color: blue;
+      font-weight: bold;
+      margin-top: 15px;
+    }
     .section-title {
-      color: #333;
+      text-align: left;
+      color: darkred;
+      font-size: 18px;
       font-weight: bold;
       margin-top: 20px;
     }
+    ul { margin-left: 20px; }
     .event-format, .event-incharge {
       margin-top: 20px;
     }
-    .highlight {
-      font-weight: bold;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    .coordinators {
+      margin-top: 15px;
+    }
+    .coordinators div {
+      margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 18px; }
+      h2, h3 { font-size: 16px; }
+      ul { font-size: 14px; }
+      table, th, td { font-size: 14px; }
     }
   </style>
 </head>
@@ -46,23 +74,22 @@
     <h1>Arasu Engineering College</h1>
     <h2>Chennai Main Road, Kumbakonam - 612501</h2>
     <h2>INTELEZA - 2025</h2>
-    <h3>Department of Artificial Intelligence and Data Science</h3>
-    <h3>AND</h3>
-    <h3>Department of Information Technology</h3>
-    <h1 style="color: blue;">MEMECRAFT</h1>
-    <p style="text-align:center;"><em>(Date: 24/09/2025)</em></p>
+    <h3>Department of Artificial Intelligence and Data Science<br>AND<br>Department of Information Technology</h3>
+
+    <div class="event-title">MEMECRAFT</div>
+    <p style="text-align:center;">Date: 24/09/2025</p>
 
     <p><strong>Dear Participants,</strong><br>
-    We are delighted to invite you to participate in Meme Creation, a fun and creative competition organized by the Department of Artificial Intelligence and Data Science and the Department of Information Technology, Arasu Engineering College. This event is designed to test participants’ creativity, humor sense, design skills, and ability to convey meaningful ideas through memes.</p>
+    We are delighted to invite you to participate in Meme Creation, a fun and creative competition organized by the Department of Artificial Intelligence and Data Science and the Department of Information Technology, Arasu Engineering College...</p>
 
     <div class="section-title">Objective:</div>
     <ul>
       <li>Encourage creativity and humor through digital media.</li>
-      <li>Improve participants’ ability to express ideas visually in an engaging way.</li>
+      <li>Improve participants' ability to express ideas visually in an engaging way.</li>
       <li>Promote fun learning and innovation in a competitive environment.</li>
     </ul>
 
-    <div class="section-title">Rules and regulations:</div>
+    <div class="section-title">Rules and Regulations:</div>
     <ul>
       <li>Only registered participants are allowed.</li>
       <li>Participants must create a meme on the given topics.</li>
@@ -71,7 +98,7 @@
       <li>The selected meme must be submitted in PNG format.</li>
       <li>File size should not exceed 7 MB.</li>
       <li>File naming format: ParticipantName_CollegeName_EventName.</li>
-      <li>The output should not offend any particular religion, political party, or college management.</li>
+      <li>The output should not offend any religion, political party, or college management.</li>
       <li>Participants must use only the given tools.</li>
       <li>Use of pre-made templates without modification will lead to disqualification.</li>
       <li>Participants must strictly follow the time limit.</li>
@@ -79,18 +106,21 @@
     </ul>
 
     <div class="event-format">
-      <div class="section-title">Event format:</div>
-      <p><strong>Batch 1:</strong> A group of participants will participate, and their best artwork will be selected.</p>
-      <p><strong>Batch 2:</strong> A group of participants will participate, and their best artwork will be selected.</p>
+      <strong>Event Format:</strong>
+      <table>
+        <tr><td>Batch 1</td><td>A group of participants will participate, and their best artwork will be selected.</td></tr>
+        <tr><td>Batch 2</td><td>A group of participants will participate, and their best artwork will be selected.</td></tr>
+      </table>
     </div>
 
     <div class="event-incharge">
-      <div class="section-title">Event incharges:</div>
-      <p><strong>Staff incharge:</strong> Mr. Balasingam</p>
-      <p><strong>Student incharges:</strong><br>
-      Easwar (6370464156)<br>
-      Dhrashini (8060803623)<br>
-      Arulkumaran.k (6374158033)</p>
+      <strong>Event Incharges:</strong><br>
+      Staff Incharge: Mr. Balasingam
+      <div class="coordinators">
+        <div>Easwar 📞 6374064156</div>
+        <div>Dharshini 📞 8068063623</div>
+        <div>Arulkumaran.k 📞 6374158033</div>
+      </div>
     </div>
   </div>
 </body>
