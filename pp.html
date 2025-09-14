@@ -7,44 +7,44 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
+      margin: 10px;
       line-height: 1.6;
       background: #fdfdfd;
       color: #111;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      padding: 30px;
+      padding: 20px;
       border: 2px solid #000;
       border-radius: 10px;
       background: #fff;
     }
     h1, h2, h3 {
       text-align: center;
-      margin: 8px 0;
+      margin: 6px 0;
     }
-    h1 { color: #003366; }
-    h2 { color: #222; }
-    h3 { color: darkred; }
+    h1 { color: #003366; font-size: 20px; }
+    h2 { color: #222; font-size: 18px; }
+    h3 { color: darkred; font-size: 16px; }
     .event-title {
       text-align: center;
-      font-size: 26px;
+      font-size: 24px;
       color: green;
       font-weight: bold;
       margin-top: 15px;
     }
     .sub-title {
       text-align: center;
-      font-size: 20px;
+      font-size: 18px;
       color: #111;
       margin-bottom: 20px;
     }
-    ul { margin-left: 40px; }
+    ul { margin-left: 20px; }
     .section-title {
       text-align: center;
       color: green;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       margin-top: 20px;
     }
@@ -53,16 +53,22 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+      gap: 15px;
     }
     .coordinators div {
       text-align: center;
-      margin: 10px;
+      flex: 1 1 250px;
     }
     .footer {
       text-align: center;
       margin-top: 25px;
       font-style: italic;
       color: green;
+    }
+    @media (max-width: 600px) {
+      .event-title { font-size: 20px; }
+      .sub-title { font-size: 16px; }
+      ul { margin-left: 15px; font-size: 14px; }
     }
   </style>
 </head>
